@@ -13,10 +13,11 @@ import { test } from "@playwright/test";
 test("Salesforce Login Validation", async ({ page }) => {
     await page.goto("https://login.salesforce.com/");
     await page.locator("#username").fill("priyantitan.07986efd4dba@agentforce.com");
-    await page.locator("#password").fill("Priyan123");
+    await page.locator('//input[@id="Login"]').click();
+    await page.locator("#password").fill("Priyan@123");
     await page.locator("#Login").click();
 
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
     console.log("Page title:", await page.title());
     console.log("Current URL:", page.url());
 
